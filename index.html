@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function cookie(fn) {
+        const cookies = {};
+        return function (arg) {
+          if (arg in cookies) {
+            return cookies[arg];
+          }
+          cookies[arg] = fn(arg);
+          const getArr = Object.entries(cookies);
+          if (getArr.length >= 5) {
+            const addAndRemove = getArr.slice(-5);
+          }
+          return cookies[arg];
+        };
+      }
+
+      function sum(a) {
+        console.log("first");
+        return a + 1;
+      }
+
+      const result = cookie(sum);
+      console.log(result(1));
+    </script>
+  </body>
+</html>
